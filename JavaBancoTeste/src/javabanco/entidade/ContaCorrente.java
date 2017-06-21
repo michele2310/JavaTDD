@@ -3,8 +3,16 @@ package javabanco.entidade;
  import java.util.ArrayList;
  
  public class ContaCorrente {
+	 
+  //	Criando atributos 
+	private int _numero;
+	private String _titular;
+	//
  	private float _saldo = 0;
  	private ArrayList<Float> _operacoes = new ArrayList<Float>();
+	private Object ;
+ 	
+ 	
  	public float saldo(){
  		return _saldo;
  	}
@@ -26,4 +34,33 @@ package javabanco.entidade;
  	public ArrayList<Float> extrato() {
  		return _operacoes;
  	}
-}
+ 	
+   // Criando metodos para utilizar os atributos
+ 	
+ 		// criando metodo conta corrente e adicionando valor aos atributos	
+	 	public ContaCorrente(int numero, String titular){
+	 			_numero = numero;
+	 			_titular = titular;
+	 	}
+ 		// 	
+	 	
+	 //	 criando construtores
+ 	public String getTitular() {
+ 		return _titular;
+ 	}
+ 	
+ 	
+ 	public int getNumero() {
+ 		return _numero;
+ 	}
+ 		
+ 	
+ 	// 	
+ 	public float transferencia( float valor , ContaCorrente ccDestino) {
+ 	
+ 		// 	referenciando valor de debito 	
+ 		this.debito(valor);
+ 		ccDestino.credito(valor);
+ 		return _saldo;
+ 	}
+ }
